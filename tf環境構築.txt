@@ -1,0 +1,23 @@
+conda create -n tf python=3.6
+
+activate tf
+
+pip install --ignore-installed --upgrade tensorflow-gpu
+
+pip install keras
+
+
+
+conda install jupyter
+
+# TensorFlowのGPUメモリ使用量の制限
+import tensorflow as tf
+from keras.backend.tensorflow_backend import set_session
+config = tf.ConfigProto()
+config.gpu_options.per_process_gpu_memory_fraction = 0.8
+set_session(tf.Session(config=config))
+
+
+
+conda install pillow   # インストール後、仮想環境再起動
+conda install matplotlib
